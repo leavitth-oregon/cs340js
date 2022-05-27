@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,7 +51,7 @@
           <div class="me-auto p-2 bd-highlight"><h2>Schedules</div>
           <div class="p-2 bd-highlight col text-center" >
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#customerModal" onclick="postCustomer()">
-                Add New Transaction</button>
+                Add New Schedule</button>
           </div>
         </div>
 
@@ -60,26 +60,38 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add New Transaction</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Add New Schedule</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" method="POST" id="addCustomer">
+                    <form class="row g-3" method="POST" id="addTrainer">
                         <div class="col-md-6">
-                            <label for="CustomerID" class="form-label">Customer</label>
-                            <select id="CustomerID" class="form-select" name="CustomerID">
+                            <label for="TrainerID" class="form-label">Trainer</label>
+                            <select id="TrainerID" class="form-select" name="TrainerID">
                                 <option selected>Choose...</option>
                             </select>
                         </div>
+
                         <div class="col-md-2">
-                            <label for="amount" class="form-label">Amount</label>
-                            <input type="number" class="form-control" id="amount" name="amount">
+                            <label for="activity" class="form-label">Activity</label>
+                            <input type="text" class="form-control" id="activity" name="activity">
                           </div>
                         
                         <div class="col-md-6">
-                            <label for="transactionDate" class="form-label">TransactionDate</label>
-                            <input type="datetime" class="form-control" id="transactionDate" name="transactionDate">
+                            <label for="activityDays" class="form-label">ActivityDays</label>
+                            <input type="text" class="form-control" id="activityDays" name="activityDays">
                         </div>
+
+                        <div class="col-md-6">
+                            <label for="startTime" class="form-label">StartTime</label>
+                            <input type="datetime" class="form-control" id="startTime" name="startTime">
+                        </div>
+
+                      <div class="col-md-6">
+                          <label for="duration" class="form-label">Duration</label>
+                          <input type="duration" class="form-control" id="duration" name="duration">
+                      </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" id="submit"> Submit</button>
@@ -97,11 +109,12 @@
             <table id="customertable">
                 <thead>
                     <tr>
-                        <th scope="col">transactionID</th>
-                        <th scope="col">CustomerID</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Transaction Date</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Schedule ID</th>
+                        <th scope="col">Trainer ID</th>
+                        <th scope="col">Activity</th>
+                        <th scope="col">Activity Days</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">Duration</th>
                     </tr>
                 </thead>
                     <tbody id="customerTable">
